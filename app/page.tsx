@@ -235,7 +235,7 @@ type ResumeTab = "formation" | "experience" | "competences";
 
 const FORMATION = [
   {
-    degree: { fr: "Master Sorbonne Data Analytics ", en: "Master’s in Data Analytics " },
+    degree: { fr: "Master 2 — Data Analytics (MOSEF)", en: "Master 2 — Data Analytics (MOSEF)" },
     school: "Université Paris 1 Panthéon-Sorbonne",
     period: "Oct. 2025 – présent",
     details: { fr: "Python, SQL, Machine Learning, Deep Learning, Power BI, Azure BI, Dataiku, GEN-AI, MLOps, Data Management", en: "Python, SQL, Machine Learning, Deep Learning, Power BI, Azure BI, Dataiku, GEN-AI, MLOps, Data Management" },
@@ -341,6 +341,8 @@ export default function Home() {
   const [tab, setTab] = useState<Tab>("Data Science");
   const [lang, setLang] = useState<Lang>("fr");
   const [resumeTab, setResumeTab] = useState<ResumeTab>("formation");
+  const [formState, setFormState] = useState<"idle"|"sending"|"sent"|"error">("idle");
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const t = content[lang];
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -526,7 +528,7 @@ export default function Home() {
           <div className="relative">
             <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-500/50 via-sky-400/40 to-cyan-400/40 blur-md opacity-70 animate-pulse" />
             <div className="relative h-60 w-60 overflow-hidden rounded-full ring-1 ring-white/15">
-              <Image src="/eben1.png" alt="Photo de profil" fill className="object-cover" priority />
+              <Image src="/Eben_.png" alt="Photo de profil" fill className="object-cover" priority />
             </div>
           </div>
 
@@ -837,31 +839,69 @@ export default function Home() {
               </div>
             </div>
 
-            {/* COLONNE DROITE — formulaire */}
+            {/* COLONNE DROITE — formulaire Formspree */}
             <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-7 space-y-5">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-white/40 uppercase tracking-wider">{lang === "fr" ? "Votre nom" : "Your name"}</label>
-                  <input type="text" placeholder={lang === "fr" ? "Jean Dupont" : "John Doe"} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/60 transition-all" />
+              {formState === "sent" ? (
+                <div className="flex flex-col items-center justify-center py-12 gap-4 text-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-500/10 border border-green-500/30">
+                    <svg className="h-8 w-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <p className="text-white font-semibold text-lg">{lang === "fr" ? "Message envoyé !" : "Message sent!"}</p>
+                  <p className="text-white/50 text-sm">{lang === "fr" ? "Je vous répondrai dans les plus brefs délais." : "I will get back to you as soon as possible."}</p>
+                  <button onClick={() => { setFormState("idle"); setFormData({ name: "", email: "", subject: "", message: "" }); }} className="mt-2 text-xs text-blue-400 hover:text-blue-300 transition-all">
+                    {lang === "fr" ? "Envoyer un autre message" : "Send another message"}
+                  </button>
                 </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-white/40 uppercase tracking-wider">Email</label>
-                  <input type="email" placeholder="votre@email.com" className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/60 transition-all" />
-                </div>
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-medium text-white/40 uppercase tracking-wider">{lang === "fr" ? "Objet" : "Subject"}</label>
-                <input type="text" placeholder={lang === "fr" ? "Sujet de votre message" : "Your subject"} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/60 transition-all" />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-medium text-white/40 uppercase tracking-wider">Message</label>
-                <textarea rows={6} placeholder={lang === "fr" ? "Votre message..." : "Your message..."} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/60 transition-all resize-none" />
-              </div>
-              <button className="w-full relative overflow-hidden rounded-xl py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-sky-500" />
-                <span className="relative">{lang === "fr" ? "Envoyer le message" : "Send message"}</span>
-                <svg className="relative h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-              </button>
+              ) : (
+                <>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-xs font-medium text-white/40 uppercase tracking-wider">{lang === "fr" ? "Votre nom" : "Your name"}</label>
+                      <input type="text" value={formData.name} onChange={e => setFormData(p => ({...p, name: e.target.value}))} placeholder={lang === "fr" ? "Jean Dupont" : "John Doe"} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/60 transition-all" />
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-xs font-medium text-white/40 uppercase tracking-wider">Email</label>
+                      <input type="email" value={formData.email} onChange={e => setFormData(p => ({...p, email: e.target.value}))} placeholder="votre@email.com" className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/60 transition-all" />
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-medium text-white/40 uppercase tracking-wider">{lang === "fr" ? "Objet" : "Subject"}</label>
+                    <input type="text" value={formData.subject} onChange={e => setFormData(p => ({...p, subject: e.target.value}))} placeholder={lang === "fr" ? "Sujet de votre message" : "Your subject"} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/60 transition-all" />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-medium text-white/40 uppercase tracking-wider">Message</label>
+                    <textarea rows={6} value={formData.message} onChange={e => setFormData(p => ({...p, message: e.target.value}))} placeholder={lang === "fr" ? "Votre message..." : "Your message..."} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/60 transition-all resize-none" />
+                  </div>
+                  {formState === "error" && (
+                    <p className="text-red-400 text-xs">{lang === "fr" ? "Une erreur est survenue. Réessayez." : "An error occurred. Please try again."}</p>
+                  )}
+                  <button
+                    onClick={async () => {
+                      if (!formData.name || !formData.email || !formData.message) return;
+                      setFormState("sending");
+                      try {
+                        const res = await fetch("https://formspree.io/f/mlgajayn", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ name: formData.name, email: formData.email, subject: formData.subject, message: formData.message }),
+                        });
+                        if (res.ok) setFormState("sent");
+                        else setFormState("error");
+                      } catch { setFormState("error"); }
+                    }}
+                    disabled={formState === "sending"}
+                    className="w-full relative overflow-hidden rounded-xl py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-sky-500" />
+                    <span className="relative">
+                      {formState === "sending"
+                        ? (lang === "fr" ? "Envoi en cours..." : "Sending...")
+                        : (lang === "fr" ? "Envoyer le message" : "Send message")}
+                    </span>
+                    {formState !== "sending" && <svg className="relative h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>}
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </section>
