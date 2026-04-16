@@ -526,7 +526,7 @@ export default function Home() {
           <div className="relative">
             <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-500/50 via-sky-400/40 to-cyan-400/40 blur-md opacity-70 animate-pulse" />
             <div className="relative h-60 w-60 overflow-hidden rounded-full ring-1 ring-white/15">
-              <Image src="/Eben_.png" alt="Photo de profil" fill className="object-cover" priority />
+              <Image src="/eben1.png" alt="Photo de profil" fill className="object-cover" priority />
             </div>
           </div>
 
