@@ -132,21 +132,22 @@ const PROJECTS_DATA: Project[] = [
     link: "", 
     image: "/pauvre.jpg", // Tu peux ajouter une image de graphique de tendances parallèles
   },
-  {
+   {
     category: "Econometrics",
-    title: { 
-      fr: "Prévision de l'Inflation (Séries Temporelles)", 
-      en: "Inflation Forecasting (Time Series)" 
+    title: {
+      fr: "Concentration des exportations et croissance économique",
+      en: "Export Concentration and Economic Growth",
     },
-    desc: { 
-      fr: "Modélisation et prévision de l'indice des prix à la consommation via des modèles ARMA, GARCH et VAR.", 
-      en: "Modeling and forecasting CPI using ARMA, GARCH, and VAR models." 
+    desc: {
+      fr: "Étude économétrique sur 147 pays (1995–2023) analysant l'impact de la structure des exportations (indice HHI) sur la croissance du PIB par habitant. Modèles MCO et 2SLS, tests RESET, endogénéité (Nakamura) et suridentification (Sargan). Résultat : effet dual selon le niveau de développement (PMA vs pays développés).",
+      en: "Econometric study on 147 countries (1995–2023) analyzing the impact of export structure (HHI index) on GDP per capita growth. OLS and 2SLS models, RESET, endogeneity (Nakamura) and Sargan tests. Finding: dual effect depending on development level (LDCs vs developed countries).",
     },
-    tech: ["Python", "Statsmodels", "Time Series"],
-    github: "https://github.com/Eben-Ezer-maker/inflation-forecast",
-    link: "", 
+    tech: ["EViews", "MCO", "2SLS", "Indice HHI", "WDI", "WITS", "Endogénéité"],
+    github: "https://github.com/Eben-Ezer-maker/Croissance---commerce-international",
+    link: "",
     image: "",
   },
+
   {
     category: "Econometrics",
     title: { 
@@ -547,7 +548,7 @@ export default function Home() {
             
             {/* 1. Bouton CV */}
             <a 
-              href="EbenEzer_s_resume.pdf"  // <--- C'est ici qu'on met le lien du fichier (dans le dossier public)
+              href="NGUESSAN_YAO_EBEN_EZER_CV_.pdf"  // <--- C'est ici qu'on met le lien du fichier (dans le dossier public)
               target="_blank"     // Ouvre dans un nouvel onglet
               className="relative overflow-hidden rounded-2xl px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 hover:-translate-y-0.5 transition flex items-center justify-center"
             >
