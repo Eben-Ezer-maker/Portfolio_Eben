@@ -145,7 +145,7 @@ const PROJECTS_DATA: Project[] = [
       en: "Econometric study on 147 countries (1995–2023) analyzing the impact of export structure (HHI index) on GDP per capita growth. OLS and 2SLS models, RESET, endogeneity (Nakamura) and Sargan tests. Finding: dual effect depending on development level (LDCs vs developed countries).",
     },
     tech: ["EViews", "MCO", "2SLS", "Indice HHI", "WDI", "WITS", "Endogénéité"],
-    github: "https://github.com/Eben-Ezer-maker/TradeAPP",
+    github: "https://github.com/Eben-Ezer-maker/Croissance---commerce-international",
     link: "",
     image: "",
   },
