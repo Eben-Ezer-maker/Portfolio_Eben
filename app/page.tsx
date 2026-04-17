@@ -236,7 +236,7 @@ type ResumeTab = "formation" | "experience" | "competences";
 
 const FORMATION = [
   {
-    degree: { fr: "Master 2 — Data Analytics (MOSEF)", en: "Master 2 — Data Analytics (MOSEF)" },
+    degree: { fr: "Master Sorbonne Data Analytics ", en: "Master Sorbonne Data Analytics " },
     school: "Université Paris 1 Panthéon-Sorbonne",
     period: "Oct. 2025 – présent",
     details: { fr: "Python, SQL, Machine Learning, Deep Learning, Power BI, Azure BI, Dataiku, GEN-AI, MLOps, Data Management", en: "Python, SQL, Machine Learning, Deep Learning, Power BI, Azure BI, Dataiku, GEN-AI, MLOps, Data Management" },
