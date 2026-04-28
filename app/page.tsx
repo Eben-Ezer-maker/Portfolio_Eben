@@ -256,15 +256,7 @@ const FORMATION = [
 ];
 
 const EXPERIENCE = [
-  {
-    role: { fr: "Assistant de Recherche", en: "Research Assistant" },
-    company: "Université de Sherbrooke — Canada",
-    period: "Mai – Août 2026",
-    bullets: {
-      fr: ["Collecte, traitement de données et modélisation économétrique pour publications académiques", "Revue de littérature quantitative, rédaction de notes de recherche et présentation des résultats"],
-      en: ["Data collection, processing and econometric modeling for academic publications", "Quantitative literature review, research notes writing and results presentation"],
-    },
-  },
+ 
   {
     role: { fr: "Enquêteur Mobilité & Trafic", en: "Mobility & Traffic Surveyor" },
     company: "Cqualite-T2C — Clermont-Ferrand",
