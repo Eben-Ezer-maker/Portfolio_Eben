@@ -772,12 +772,25 @@ export default function Home() {
                   <h3 className="text-xs font-semibold uppercase tracking-widest text-amber-400 mb-4">{t.certif}</h3>
                   <div className="flex flex-wrap gap-3">
                     {CERTIFICATIONS.map((c, i) => (
-                      <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-amber-500/20">
-                        <svg className="h-3.5 w-3.5 text-amber-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
-                        <span className="text-sm text-white/80 font-medium">{c.name}</span>
-                        <span className="text-xs text-white/40">— {c.issuer}</span>
-                      </div>
-                    ))}
+  <div key={i} className="flex flex-col gap-3 w-full">
+    {/* Badge existant */}
+    <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-amber-500/20">
+      <svg className="h-3.5 w-3.5 text-amber-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+      </svg>
+      <span className="text-sm text-white/80 font-medium">{c.name}</span>
+      <span className="text-xs text-white/40">— {c.issuer}</span>
+    </div>
+
+    {/* Image du certificat */}
+    <div
+      className="relative w-full h-48 rounded-xl overflow-hidden border border-amber-500/20 cursor-pointer"
+      onClick={() => window.open(c.image, "_blank")}
+    >
+      <Image src={c.image} alt={c.name} fill className="object-contain bg-white/5" />
+    </div>
+  </div>
+))}
                   </div>
                 </div>
               </div>
