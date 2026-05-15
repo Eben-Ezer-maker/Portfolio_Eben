@@ -287,8 +287,9 @@ const SKILLS = [
 ];
 
 const CERTIFICATIONS = [
-  { name: "Dataiku Core Designer", issuer: "Dataiku" },
-  { name: "Suivi & évaluation de projet", issuer: "AFD" },
+  { name: "Dataiku Core Designer", issuer: "Dataiku", image: "/dataiku.jpg" },
+  { name: "Suivi & évaluation de projet", issuer: "AFD", image: "/afd.jpeg" },
+];
 ];
 
 const content = {
