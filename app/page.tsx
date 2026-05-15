@@ -290,7 +290,7 @@ const CERTIFICATIONS = [
   { name: "Dataiku Core Designer", issuer: "Dataiku", image: "/dataiku.jpg" },
   { name: "Suivi & évaluation de projet", issuer: "AFD", image: "/afd.jpeg" },
 ];
-];
+
 
 const content = {
   fr: {
@@ -772,7 +772,7 @@ export default function Home() {
                   <h3 className="text-xs font-semibold uppercase tracking-widest text-amber-400 mb-4">{t.certif}</h3>
                   <div className="flex flex-wrap gap-3">
                     {CERTIFICATIONS.map((c, i) => (
-  <div key={i} className="flex flex-col gap-3 w-full">
+                          <div key={i} className="flex flex-col gap-3 w-full">
     {/* Badge existant */}
     <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-amber-500/20">
       <svg className="h-3.5 w-3.5 text-amber-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
