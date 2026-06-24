@@ -269,7 +269,7 @@ const EXPERIENCE = [
 "Cleaned, validated, and analyzed datasets to ensure data quality and support research in environmental economics.",
  "Conducted literature reviews and contributed to the preparation of academic articles and research reports.",
  "Analyzed Quebec’s economic, institutional, and environmental context to support result interpretation and policy recommendations.",
-" Performed data analysis to identify inefficiencies, diagnose issues, and formulate evidence-based recommendations."],
+ "Performed data analysis to identify inefficiencies, diagnose issues, and formulate evidence-based recommendations."],
 },
   },
  
