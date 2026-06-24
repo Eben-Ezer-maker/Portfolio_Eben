@@ -271,7 +271,7 @@ const EXPERIENCE = [
   "Analyzed Quebec’s economic, institutional, and environmental context to support result interpretation and policy recommendations.",
   "Performed data analysis to identify inefficiencies, diagnose issues, and formulate evidence-based recommendations."],
   },
- 
+},
   {
     role: { fr: "Enquêteur Mobilité & Trafic", en: "Mobility & Traffic Surveyor" },
     company: { fr: "Cqualite-T2C — Clermont-Ferrand", en: "Cqualite-T2C — Clermont-Ferrand" },
