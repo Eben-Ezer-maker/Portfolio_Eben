@@ -256,10 +256,26 @@ const FORMATION = [
 ];
 
 const EXPERIENCE = [
+
+  {
+    role: { fr: "Assistant de recherche", en: "Research Assistant" },
+    company: { fr: "Université Sherbrooke , Canada", en: "University of Sherbrooke , Canada" },
+    period: "Mai – Aout. 2026",
+    bullets: {fr: ["Construction, harmonisation et gestion d'une base de données environnementale à grande échelle pour le Québec à partir de sources statistiques et géospatiales", "Nettoyage, validation et analyse de données afin de garantir leur qualité et leur utilisation dans des travaux de recherche en économie de l'environnement",
+ "Réalisation de revues de littérature et soutien à la rédaction d'articles scientifiques et de rapports de recherche",
+ "Analyse du contexte économique, institutionnel et environnemental du Québec pour appuyer l'interprétation des résultats et la formulation de recommandations",
+ "Analyse des données pour identifier les dysfonctionnements et produire des recommandations"],
+      en: ["Built, harmonized, and managed a large-scale environmental database for Quebec by integrating statistical and geospatial data from multiple sources.",
+"Cleaned, validated, and analyzed datasets to ensure data quality and support research in environmental economics.",
+ "Conducted literature reviews and contributed to the preparation of academic articles and research reports.",
+ "Analyzed Quebec’s economic, institutional, and environmental context to support result interpretation and policy recommendations.",
+" Performed data analysis to identify inefficiencies, diagnose issues, and formulate evidence-based recommendations."
+},
+  },
  
   {
     role: { fr: "Enquêteur Mobilité & Trafic", en: "Mobility & Traffic Surveyor" },
-    company: "Cqualite-T2C — Clermont-Ferrand",
+    company: { fr: "Cqualite-T2C — Clermont-Ferrand", en: "Cqualite-T2C — Clermont-Ferrand" },
     period: "Mars – Avr. 2025",
     bullets: {
       fr: ["Collecte terrain de données de fréquentation (bus et trams), structuration et nettoyage", "Analyse des données pour identifier les dysfonctionnements et produire des recommandations"],
@@ -268,7 +284,7 @@ const EXPERIENCE = [
   },
   {
     role: { fr: "Agent d'Enquêtes — Recensement national", en: "Survey Agent — National Census" },
-    company: "Institut National de Statistique (INS) — Abidjan, Côte d'Ivoire",
+    company: { fr: "Institut National de Statistique (INS) — Abidjan, Côte d'Ivoire", en: "National Institute of Statistics (INS) — Abidjan, Côte d'Ivoire" },
     period: "Nov. – Déc. 2021",
     bullets: {
       fr: ["Collecte auprès de plusieurs centaines de ménages, contrôle qualité et rapports journaliers"],
