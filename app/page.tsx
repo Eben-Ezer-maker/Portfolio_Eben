@@ -749,7 +749,7 @@ export default function Home() {
                         <h3 className="text-base font-semibold text-white">{e.role[lang]}</h3>
                         <span className="text-xs px-3 py-1 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 shrink-0">{e.period}</span>
                       </div>
-                      <p className="text-sm text-sky-400 font-medium mb-4">{e.company}</p>
+                      <p className="text-sm text-sky-400 font-medium mb-4">{e.company[lang]}</p>
                       <ul className="space-y-2">
                         {e.bullets[lang].map((b, j) => (
                           <li key={j} className="flex gap-3 text-sm text-white/55 leading-relaxed">
